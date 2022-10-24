@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Coral</title>
+    <script defer type="text/javascript" src="../js/validation.js"></script>
   </head>
+
   <body>
     <div id="wrapper">
       <div class="main-content">
@@ -14,33 +16,58 @@
           <img src="logo.PNG" />
         </div>
         <div class="loginInput">
-          <form action="viewpost.html">
+          <form
+            action="viewpost.html"
+            name="registrationForm"
+            onsubmit="return(validate());"
+          >
             <input
               type="text"
+              name="UserName"
               placeholder="Username"
               class="usernameInput"
-              required
             />
             <input
-              type="password"
+              type="text"
+              name="EMail"
+              placeholder="Email"
+              class="usernameInput"
+            />
+            <input
+              type="text"
+              name="Password"
               placeholder="Password"
               class="passwordInput"
-              required  
             />
             <input
-              type="password"
+              type="text"
+              name="ConfirmPassword"
               placeholder="Re-Enter Password"
               class="reEnterPassword"
-              required
             />
+
+            <button type="submit" value="Submit" class="btn">Sign up</button>
+          </form>
+          <p class="or">Or</p>
+          <button type="submit" class="btn">Log in</button>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <!--
             <button type="submit" class="btn">Sign up</button>
           </form>
           <p class="or">Or</p>
-          <form action="login.html">
+          <form
+            action="login.html"
+            name="validateForm"
+            onsubmit="return(validateForm())"
+          >
             <button type="submit" class="btn">Log in</button>
           </form>
         </div>
       </div>
     </div>
   </body>
-</html>
+--></html>
