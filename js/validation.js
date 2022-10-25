@@ -10,20 +10,22 @@ var emailStyle = emailInput.style;
 
 var userNameLetters = /^[A-Za-z]/i;
 var userNameLength = /^.{3,}$/;
-var passwordVerfication = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+var passwordVerfication =
+  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
 var blackBox = "2px solid black";
 var redBox = "2px solid red";
 
 function validate() {
   const userName = document.registrationForm.UserName.value;
-  const userNameFocus = document.registrationForm.UserName.focus();
   const email = document.registrationForm.EMail.value;
   const password = document.registrationForm.Password.value;
-  const passwordFocus = document.registrationForm.Password.focus();
   const confirmPassword = document.registrationForm.ConfirmPassword.value;
-  const confirmPasswordFocus =
-    document.registrationForm.ConfirmPassword.focus();
+
+  const userNameFocus = document.registrationForm.UserName.focus();
+  const emailFocus = document.registrationForm.EMail.focus();
+  const passwordFocus = document.registrationForm.Password.focus();
+  const confirmPasswordFocus = document.registrationForm.ConfirmPassword.focus();
 
   if (userName == "") {
     alert("Username required");
@@ -44,7 +46,7 @@ function validate() {
   if (email == "") {
     alert("Email Required");
     emailStyle.outline = redBox;
-    document.registrationForm.EMail.focus();
+    emailFocus;
     return false;
   } else {
     emailStyle.outline = blackBox;
@@ -55,9 +57,7 @@ function validate() {
     passwordFocus;
     return false;
   }
-  if (
-    !password.match(passwordVerfication) 
-  ) {
+  if (!password.match(passwordVerfication)) {
     alert(
       "Make sure password is 8 alphanumeric characters long, contains at least one upper case letter, one number, and one of the following special characters: / * - + ! @ # $ ^ & ~ [ ]"
     );
