@@ -3,12 +3,21 @@ var passwordInput = document.getElementById("passwordInput");
 var confirmPasswordInput = document.getElementById("confirmPasswordInput");
 var emailInput = document.getElementById("emailInput");
 
-var userNameLetters = /^[A-Za-z]+$/;
+var userNameStyle = userNameInput.style;
+var passwordStyle = passwordInput.style;
+var confirmedPasswordStyle = confirmPasswordInput.style;
+var emailStyle = emailInput.style;
+
+var userNameLetters = /^[A-Za-z]/i;
 var userNameLength = /^.{3,}$/;
 
 var passwordLetters = /[A-Z].*\d|\d.*[A-Z]/;
 var passwordDigits = /^[/*-+!@#$^&~[]]/;
 var passwordLength = /^.{8,}$/;
+var passwordVerfication = /[A-Z].*\d|\d.*[A-Z]*[/*-+!@#$^&~[]]*/;
+
+var blackBox = "2px solid black";
+var redBox = "2px solid red";
 
 function validate() {
   const userName = document.registrationForm.UserName.value;
@@ -38,11 +47,11 @@ function validate() {
 
   if (email == "") {
     alert("Email Required");
-    emailInput.style.outline = "2px solid red";
+    emailStyle.outline = redBox;
     document.registrationForm.EMail.focus();
     return false;
   } else {
-    emailInput.style.outline = "2px solid black";
+    emailStyle.outline = blackBox;
   }
 
   if (password == "") {
@@ -50,14 +59,13 @@ function validate() {
     passwordFocus;
     return false;
   }
-  if (!password.match(passwordLength)) {
-    alert("Make sure password is 8 or more alphanumeric characters long");
-    passwordFocus;
-    return false;
-  }
-  if (!password.match(passwordLetters) && !password.match(passwordDigits)) {
+  if (
+    !password.match(passwordLetters) &&
+    !password.match(passwordDigits) &&
+    !password.match(passwordLength)
+  ) {
     alert(
-      "Make sure password is contains at least one upper case letter, one number, and one of the following special characters: / * - + ! @ # $ ^ & ~ [ ]"
+      "Make sure password is 8 alphanumeric characters long, contains at least one upper case letter, one number, and one of the following special characters: / * - + ! @ # $ ^ & ~ [ ]"
     );
     passwordFocus;
     return false;
@@ -76,26 +84,34 @@ function validate() {
   }
 }
 
+function checkUsername() {
+  var value = userNameInput.value;
+
+  if (value.match(userNameLetters) && value.match(userNameLength)) {
+    userNameStyle.outline = blackBox;
+  } else {
+    userNameStyle.outline = redBox;
+  }
+}
+
+function checkPassword() {
+  var password = passwordInput.value;
+
+  if (password.match(passwordVerfication) && password.match(passwordLength)) {
+    passwordStyle.outline = blackBox;
+  } else {
+    passwordStyle.outline = redBox;
+  }
+}
+
 function checkPasswords() {
   var password = passwordInput.value;
   var confirmedPassword = confirmPasswordInput.value;
 
   if (password === confirmedPassword) {
-    passwordInput.style.outline = "2px solid black";
-    confirmPasswordInput.style.outline = "2px solid black";
+    confirmedPasswordStyle.outline = blackBox;
   } else {
-    passwordInput.style.outline = "2px solid red";
-    confirmPasswordInput.style.outline = "2px solid red";
-  }
-}
-
-function checkInput() {
-  var value = userNameInput.value;
-
-  if (value.match(userNameLetters)) {
-    userNameInput.style.outline = "2px solid black";
-  } else {
-    userNameInput.style.outline = "2px solid red";
+    confirmedPasswordStyle.outline = redBox;
   }
 }
 
@@ -103,5 +119,3 @@ function validated() {
   alert("The form was submitted succesfully... Reloading the page");
   location.reload();
 }
-
-
