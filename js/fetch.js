@@ -16,14 +16,13 @@ const fetchApi = () => {
     });
 }
 
-
 const showData = (data) => {
   let imageContainer = `<div></div>`
 
   data.forEach(element => {
     countTotalImages(increment, "");
     imageContainer +=
-      `<div onclick="deleteImage(this)">
+      `<div class="hovering" onclick="deleteImage(this)">
       <img src=${element.url}></img>
         <h2>${element.title} </h2>  
     </div>`;

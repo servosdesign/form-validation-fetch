@@ -7,44 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coral</title>
 </head>
-<body class = "homePage">
-    <div id="wrapperViewPost">
-        <div class="view-content">
-            <div class = "header">
-                <img src = "logo.PNG"/>
-                </div>
-            <div class="homeInput">
+<body class="homePage" onload="fetchApi()">
+    <div id="counter">
 
-                <form action = "login.html">
-                    <button type = "submit" class="btn">Log in</button>
-                </form>
-
-                <p class = "or">
-                    Or
-                </p>
-
-                <form action = "registration.html">
-                    <button type = "submit" class ="btn">Sign up</button>
-                </form> 
-
-                <p class = "or">
-                    Or
-                </p>
-
-                <form action = "index.html">
-                    <button type = "submit" class ="btn">Home</button>
-                </form>
-
-                <p class = "or">
-                    Or
-                </p>
-
-                <form action = "postimage.html">
-                    <button type = "submit" class ="btn">Post Image</button>
-                </form>
-            </div> 
-            </div>
-        </div>
+    </div>
+    <div id="wrapperHome">
+        <div class="home-content">
+            <div class="header">
+                <a href="index.html"><img src="logo.PNG" /></a>
+              </div>
+    </div>
+    <div class="button-list">
+        <a href="login.html"><button class="homeBtns">Log in</button></a>
+        <a href="registration.html"><button class="homeBtns">Sign up</button></a>
+        <a href="viewpost.html"><button class="homeBtns">View Post</button></a>
+        <a href="postimage.html"> <button class="homeBtns">Post Image</button></a>
+      </div>
+</div>
         <div class = "post">
             <h1> View Image</h1>
             <p class = "title">
