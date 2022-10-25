@@ -10,11 +10,7 @@ var emailStyle = emailInput.style;
 
 var userNameLetters = /^[A-Za-z]/i;
 var userNameLength = /^.{3,}$/;
-
-var passwordLetters = /[A-Z].*\d|\d.*[A-Z]/;
-var passwordDigits = /^[/*-+!@#$^&~[]]/;
-var passwordLength = /^.{8,}$/;
-var passwordVerfication = /[A-Z].*\d|\d.*[A-Z]*[/*-+!@#$^&~[]]*/;
+var passwordVerfication = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
 var blackBox = "2px solid black";
 var redBox = "2px solid red";
@@ -60,9 +56,7 @@ function validate() {
     return false;
   }
   if (
-    !password.match(passwordLetters) &&
-    !password.match(passwordDigits) &&
-    !password.match(passwordLength)
+    !password.match(passwordVerfication) 
   ) {
     alert(
       "Make sure password is 8 alphanumeric characters long, contains at least one upper case letter, one number, and one of the following special characters: / * - + ! @ # $ ^ & ~ [ ]"
@@ -97,7 +91,7 @@ function checkUsername() {
 function checkPassword() {
   var password = passwordInput.value;
 
-  if (password.match(passwordVerfication) && password.match(passwordLength)) {
+  if (password.match(passwordVerfication)) {
     passwordStyle.outline = blackBox;
   } else {
     passwordStyle.outline = redBox;
