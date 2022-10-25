@@ -11,14 +11,12 @@ const fetchApi = () => {
   fetch(api)
     .then(response => response.json())
     .then(data => {
-      console.log(data);
       showData(data);
     });
-}
+};
 
 const showData = (data) => {
   let imageContainer = `<div></div>`
-
   data.forEach(element => {
     countTotalImages(increment, "");
     imageContainer +=
@@ -26,10 +24,9 @@ const showData = (data) => {
       <img src=${element.url}></img>
         <h2>${element.title} </h2>  
     </div>`;
-
   });
   document.getElementById("imageContent").innerHTML = imageContainer;
-}
+};
 
 const countTotalImages = (increment, decrement) => {
   if (increment) {
@@ -38,9 +35,8 @@ const countTotalImages = (increment, decrement) => {
   if (decrement) {
     count--;
   }
-  console.log(count);
   counterDisplay.innerHTML = "Total Posts: " + count;
-}
+};
 
 const deleteImage = (e) => {
   fadeOut(e);
@@ -60,7 +56,8 @@ const fadeOut = (id) => {
     duration: fadeTime,
   },
   )
-}
+};
+
 
 
 

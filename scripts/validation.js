@@ -76,7 +76,7 @@ const validate = () => {
     confirmPasswordFocus;
     return false;
   }
-}
+};
 
 const checkUsername = () => {
   var value = userNameInput.value;
@@ -86,7 +86,7 @@ const checkUsername = () => {
   } else {
     userNameStyle.outline = redBox;
   }
-}
+};
 
 const checkPassword = () => {
   var password = passwordInput.value;
@@ -96,7 +96,7 @@ const checkPassword = () => {
   } else {
     passwordStyle.outline = redBox;
   }
-}
+};
 
 const checkPasswords = () => {
   var password = passwordInput.value;
@@ -107,9 +107,9 @@ const checkPasswords = () => {
   } else {
     confirmedPasswordStyle.outline = redBox;
   }
-}
+};
 
 const validated = () => {
-  alert("The form was submitted succesfully... Reloading the page");
-  location.reload();
-}
+  alert("The form was submitted succesfully... Loading api data page!");
+  window.location.href="index.html";
+};

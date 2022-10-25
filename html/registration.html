@@ -7,14 +7,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Coral</title>
-  <script defer type="text/javascript" src="../js/validation.js"></script>
+  <script defer type="text/javascript" src="../scripts/validation.js"></script>
 </head>
 
 <body>
   <div id="wrapper">
     <div class="main-content">
       <div class="header">
-        <a href="index.html"><img  src="logo.PNG" /></a>
+        <a href="index.html"><img src="../assets/logo.PNG" /></a>
       </div>
       <div class="loginInput">
         <form action="javascript:validated()" name="registrationForm" onsubmit="return(validate());">
@@ -30,10 +30,9 @@
           <label for="ageVerification" class="checkboxStyle">I'm 13+ years of age.</label><br />
           <input type="checkbox" id="cb1" required />
           <label for="confirmTos" class="checkboxStyle">I agree to the terms of use and privacy policy.</label><br />
-
           <button type="submit" value="Submit" class="btn">Sign up</button>
         </form>
-        <button type="submit" class="btn">Log in</button>
+        <a href="index.html"><button type="submit" class="btn">Log in</button></a>
       </div>
     </div>
   </div>
