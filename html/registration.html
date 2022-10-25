@@ -17,43 +17,48 @@
         </div>
         <div class="loginInput">
           <form
-            action="viewpost.html"
+            action="javascript:validated()"
             name="registrationForm"
             onsubmit="return(validate());"
           >
             <input
               type="text"
+              id="userNameInput"
               name="UserName"
               placeholder="Username"
-              class="usernameInput"
+              class="formInput"
+              onkeyup="checkInput()"
             />
             <input
               type="email"
+              id="emailInput"
               name="EMail"
               placeholder="Email"
-              class="usernameInput"
+              class="formInput"
             />
             <input
               type="text"
+              id="passwordInput"
               name="Password"
               placeholder="Password"
-              class="passwordInput"
+              class="formInput"
             />
             <input
               type="text"
+              id="confirmPasswordInput"
               name="ConfirmPassword"
               placeholder="Re-Enter Password"
-              class="reEnterPassword"
+              class="formInput"
+              onkeyup="checkPasswords()"
             />
 
-            <input type="checkbox" required>
-            <label for="ageVerification">13+ years of age.</label><br>
-            <input type="checkbox" required>
-            <label for="confirmTos">I accept TOS and Privacy rules.</label><br>
+            <input type="checkbox" id="cb1" required>
+            <label for="ageVerification" class="checkboxStyle">I'm 13+ years of age.</label><br>
+            <input type="checkbox" id="cb1" required>
+            <label for="confirmTos" class="checkboxStyle">I agree to the terms of use and privacy policy.</label><br>
 
             <button type="submit" value="Submit" class="btn">Sign up</button>
           </form>
-          <p class="or">Or</p>
           <button type="submit" class="btn">Log in</button>
         </div>
       </div>
