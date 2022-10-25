@@ -1,27 +1,57 @@
-const api_url = "https://jsonplaceholder.typicode.com/albums/2/photos";
+const api = "https://jsonplaceholder.typicode.com/albums/2/photos";
 
-async function getapi(url) {
-  const response = await fetch(url);
-  var data = await response.json();
-  console.log(data);
-  show(data);
+var count = 0;
+const increment = "increment";
+const decrement = "decrement";
+
+var counterDisplay = document.getElementById("counter");
+
+const fetchApi = () => {
+  fetch(api)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      showData(data);
+    });
 }
-// Calling that async function
-getapi(api_url);
 
 
-function show(data) {
-  let titleText = `<h2> </h2>`;
-  let imageData = `<img></img>`
-  for (let r of data) {
-    imageData += `<div>
-      <img src=${r.url}> </img>
-      <h2>${r.title} </h2>  
+const showData = (data) => {
+  let imageContainer = `<div></div>`
+
+  data.forEach(element => {
+    countTotalImages(increment, "");
+    imageContainer +=
+      `<div>
+      <img onclick=deleteImage() src=${element.url}></img>
+        <h2>${element.title} </h2>  
     </div>`;
-  }
-  document.getElementById("imageContent").innerHTML = imageData;
-  document.getElementById("imageTitle").innerHTML = titleText;
+
+  });
+  document.getElementById("imageContent").innerHTML = imageContainer;
 }
+
+const countTotalImages = (increment, decrement) => {
+  if (increment) {
+    count++;
+  }
+  if (decrement) {
+    count--;
+  }
+  console.log(count);
+  counterDisplay.innerHTML = "Total Posts: " + count;
+}
+
+const deleteImage = () => {
+  console.log("image clicked");
+  countTotalImages("", decrement);
+};
+
+
+
+
+
+
 
 
 
