@@ -1,5 +1,6 @@
 const api = "https://jsonplaceholder.typicode.com/albums/2/photos";
 
+var fadeTime = 1000;
 var count = 0;
 const increment = "increment";
 const decrement = "decrement";
@@ -22,8 +23,8 @@ const showData = (data) => {
   data.forEach(element => {
     countTotalImages(increment, "");
     imageContainer +=
-      `<div>
-      <img onclick=deleteImage() src=${element.url}></img>
+      `<div onclick="deleteImage(this)">
+      <img src=${element.url}></img>
         <h2>${element.title} </h2>  
     </div>`;
 
@@ -42,10 +43,25 @@ const countTotalImages = (increment, decrement) => {
   counterDisplay.innerHTML = "Total Posts: " + count;
 }
 
-const deleteImage = () => {
-  console.log("image clicked");
-  countTotalImages("", decrement);
+const deleteImage = (e) => {
+  fadeOut(e);
+
+  setTimeout(() => {
+    e.remove();
+    countTotalImages("", decrement);
+  }, fadeTime);
 };
+
+const fadeOut = (id) => {
+  id.animate(
+    [
+      { opacity: 1 },
+      { opacity: .1 },
+    ], {
+    duration: fadeTime,
+  },
+  )
+}
 
 
 
