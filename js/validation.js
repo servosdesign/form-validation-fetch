@@ -16,7 +16,7 @@ var passwordVerfication =
 var blackBox = "2px solid black";
 var redBox = "2px solid red";
 
-function validate() {
+const validate = () => {
   const userName = document.registrationForm.UserName.value;
   const email = document.registrationForm.EMail.value;
   const password = document.registrationForm.Password.value;
@@ -78,7 +78,7 @@ function validate() {
   }
 }
 
-function checkUsername() {
+const checkUsername = () => {
   var value = userNameInput.value;
 
   if (value.match(userNameLetters) && value.match(userNameLength)) {
@@ -88,7 +88,7 @@ function checkUsername() {
   }
 }
 
-function checkPassword() {
+const checkPassword = () => {
   var password = passwordInput.value;
 
   if (password.match(passwordVerfication)) {
@@ -98,7 +98,7 @@ function checkPassword() {
   }
 }
 
-function checkPasswords() {
+const checkPasswords = () => {
   var password = passwordInput.value;
   var confirmedPassword = confirmPasswordInput.value;
 
@@ -109,7 +109,7 @@ function checkPasswords() {
   }
 }
 
-function validated() {
+const validated = () => {
   alert("The form was submitted succesfully... Reloading the page");
   location.reload();
 }

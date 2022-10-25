@@ -1,49 +1,32 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coral</title>
+    <script defer type="text/javascript" src="../js/fetch.js"></script>
+
 </head>
-<body class = "homePage">
+
+<body class="homePage">
     <div id="wrapperHome">
         <div class="home-content">
-            <div class = "header">
-                <img src = "logo.PNG"/>
-                </div>
-            <div class="homeInput">
-
-                <form action = "login.html">
-                    <button type = "submit" class="btn">Log in</button>
-                </form>
-
-                <p class = "or">
-                    Or
-                </p>
-
-                <form action = "registration.html">
-                    <button type = "submit" class ="btn">Sign up</button>
-                </form> 
-
-                <p class = "or">
-                    Or
-                </p>
-
-                <form action = "viewpost.html">
-                    <button type = "submit" class ="btn">View Post</button>
-                </form>
-
-                <p class = "or">
-                    Or
-                </p>
-
-                <form action = "postimage.html">
-                    <button type = "submit" class ="btn">Post Image</button>
-                </form>
-            </div> 
+            <div class="header">
+                <img src="logo.PNG" class="headerImg" />
             </div>
         </div>
+    </div>
+
+    <h1 class="titleHeader">Feed</h1>
+    <div class="container">
+        <div id="imageContent">
+            <h2 id="imageTitle"></h2>
+        </div>
+
+    </div>
 </body>
+
 </html>
