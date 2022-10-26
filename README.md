@@ -1,1 +1,1 @@
-# form-validation-api-fetch
+#### Vanilla JavaScript application managing HTML form validation, fetching posts from json API, titles & image urls, managing & displaying the fetched data in the DOM, incrementing or decrementing the total sum of the data, changing styling for incorrect inputs, and scripted animations for deletion methods
